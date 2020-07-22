@@ -23,12 +23,14 @@
   },
   "homepage": "https://github.com/AlexanderAMalinov/Fast-test#readme",
   "dependencies": {
-    "inquirer": "^7.3.2"
+    "inquirer": "^7.3.2",
+    "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "@babel/node": "^7.10.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-jest": "^26.1.0",
     "eslint": "^7.5.0",
