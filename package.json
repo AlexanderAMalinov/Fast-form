@@ -1,0 +1,37 @@
+{
+  "name": "fast-test",
+  "version": "1.0.0",
+  "description": "Command line application for generate tests in JS file",
+  "main": "dist/bin/index.js",
+  "scripts": {
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderAMalinov/Fast-test.git"
+  },
+  "author": "Alexander Malinov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderAMalinov/Fast-test/issues"
+  },
+  "homepage": "https://github.com/AlexanderAMalinov/Fast-test#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-jest": "^26.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "jest": "^26.1.0"
+  }
+}
