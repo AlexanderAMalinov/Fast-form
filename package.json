@@ -22,7 +22,9 @@
     "url": "https://github.com/AlexanderAMalinov/Fast-test/issues"
   },
   "homepage": "https://github.com/AlexanderAMalinov/Fast-test#readme",
-  "dependencies": {},
+  "dependencies": {
+    "inquirer": "^7.3.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
@@ -32,7 +34,6 @@
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "inquirer": "^7.3.2",
     "jest": "^26.1.0"
   }
 }
