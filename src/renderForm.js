@@ -1,78 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-import inquirer from 'inquirer';
-import readlineSync from 'readline-sync';
-import Question from './question.js';
+import fs from 'fs/promises';
+import getUserData from './getUserData.js';
 
 const questions = [];
-
-const dialog = {
-  greet: () => {
-    console.log('Welcome to Fast-test!');
-    console.log('Let`s begin building your form!\n');
-  },
-  askQuestion: 'Tell me your question...',
-  askType: 'Choose type of answer(s) for your question',
-  askOptions: () => console.log('What`s options I set for your question? (type ".exit" for end)\n')
-};
+const questionsToStr = (arr) => JSON.stringify(arr.map((question) => JSON.stringify(question)));
 
 
-
-const getUserData = async () => {
-  dialog.greet();
-  let flowMode = 'next';
-  while (flowMode === 'next') {
-
-    const typeQuestion = {
-      type: 'list',
-      name: 'typeQuestion',
-      message: dialog.askType,
-      choices: ['input', 'list'],
-    };
-    const userQuestion = await inquirer.prompt({
-      type: 'input',
-      name: 'question',
-      message: dialog.askQuestion,
-    });
-    const typeOfUserQuestion = await inquirer.prompt(typeQuestion);
-    const options = [];
-
-    // Generate options for list-question
-    if (typeOfUserQuestion.typeQuestion === 'list') {
-      dialog.askOptions();
-      let listMode = 'continue';
-      while (listMode === 'continue') {
-        const option = await inquirer.prompt({
-          type: 'input',
-          name: 'question',
-          message: 'write option for your question...',
-        });
-        options.push(option.question);
-        listMode = await inquirer.prompt({
-          type: 'input',
-          name: 'question',
-          message: 'We continue? (y | n)',
-        });
-        listMode = listMode.question === 'y' ? 'continue' : 'break';
-      }
-    }
-    const preparedQuestion = new Question(typeOfUserQuestion.typeQuestion, 'question', userQuestion.question);
-
-    if (preparedQuestion.type === 'list') {
-      preparedQuestion.choices = options;
-    }
-    questions.push(preparedQuestion);
-
-    const userWill = await inquirer.prompt({
-      type: 'input',
-      name: 'question',
-      message: 'Do you want set next question? (y | n)',
-    });
-    
-    flowMode = userWill.question === 'y' ? 'next' : 'break';
-  }
-
-
-};
-
-getUserData();
+getUserData(questions)
+.then(() => fs.appendFile('./form.js', ''))
+.then(() => fs.writeFile('form.js', `import inquirer from 'inquirer';`))
+.then(() => fs.appendFile('form.js', `\nconst form = ${questionsToStr(questions)};
+const parsedForm = [];
+form.reduce((acc, item) => {
+  const parsedQuestion = JSON.parse(item);
+  acc.push(parsedQuestion);
+  return acc;
+}, parsedForm);`))
+.then(() => fs.appendFile('form.js', `\ninquirer.prompt(parsedForm);`));
