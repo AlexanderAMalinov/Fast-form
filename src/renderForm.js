@@ -13,14 +13,13 @@ const dialog = {
   },
   askQuestion: 'Tell me your question...',
   askType: 'Choose type of answer(s) for your question',
-  askOptions: () => console.log('What`s options I set for your question?')
+  askOptions: () => console.log('What`s options I set for your question? (type ".exit" for end)')
 };
 
 
 
 const getUserData = async () => {
   dialog.greet();
- // while(true) {
 
     const typeQuestion = {
       type: 'list',
@@ -38,15 +37,27 @@ const getUserData = async () => {
 
     if (type.typeQuestion === 'list') {
       dialog.askOptions();
-
-
+      let mode = 'continue';
+      while (mode === 'continue') {
+        const option = await inquirer.prompt({
+          type: 'input',
+          name: 'question',
+          message: 'write option for your question...',
+        });
+        options.push(option.question);
+        let mode = await inquirer.prompt({
+          type: 'list',
+          name: 'question',
+          message: 'We continue?',
+          choices: ['continue', 'break'],
+        }).question;
+      }
       
     }
     
     
 
 
-  //}
 };
 
 getUserData();
