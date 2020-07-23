@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import inquirer from 'inquirer';
-import readlineSync from 'readline-sync'
+import readlineSync from 'readline-sync';
 import Question from './question.js';
 
 const questions = [];
@@ -13,13 +13,15 @@ const dialog = {
   },
   askQuestion: 'Tell me your question...',
   askType: 'Choose type of answer(s) for your question',
-  askOptions: () => console.log('What`s options I set for your question? (type ".exit" for end)')
+  askOptions: () => console.log('What`s options I set for your question? (type ".exit" for end)\n')
 };
 
 
 
 const getUserData = async () => {
   dialog.greet();
+  let flowMode = 'next';
+  while (flowMode === 'next') {
 
     const typeQuestion = {
       type: 'list',
@@ -32,30 +34,43 @@ const getUserData = async () => {
       name: 'question',
       message: dialog.askQuestion,
     });
-    const type = await inquirer.prompt(typeQuestion);
+    const typeOfUserQuestion = await inquirer.prompt(typeQuestion);
     const options = [];
 
-    if (type.typeQuestion === 'list') {
+    // Generate options for list-question
+    if (typeOfUserQuestion.typeQuestion === 'list') {
       dialog.askOptions();
-      let mode = 'continue';
-      while (mode === 'continue') {
+      let listMode = 'continue';
+      while (listMode === 'continue') {
         const option = await inquirer.prompt({
           type: 'input',
           name: 'question',
           message: 'write option for your question...',
         });
         options.push(option.question);
-        let mode = await inquirer.prompt({
-          type: 'list',
+        listMode = await inquirer.prompt({
+          type: 'input',
           name: 'question',
-          message: 'We continue?',
-          choices: ['continue', 'break'],
-        }).question;
+          message: 'We continue? (y | n)',
+        });
+        listMode = listMode.question === 'y' ? 'continue' : 'break';
       }
-      
     }
+    const preparedQuestion = new Question(typeOfUserQuestion.typeQuestion, 'question', userQuestion.question);
+
+    if (preparedQuestion.type === 'list') {
+      preparedQuestion.choices = options;
+    }
+    questions.push(preparedQuestion);
+
+    const userWill = await inquirer.prompt({
+      type: 'input',
+      name: 'question',
+      message: 'Do you want set next question? (y | n)',
+    });
     
-    
+    flowMode = userWill.question === 'y' ? 'next' : 'break';
+  }
 
 
 };

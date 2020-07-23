@@ -1,7 +1,8 @@
 
 class Question {
-  constructor(type, message) {
+  constructor(type, name, message) {
     this.type = type;
+    this.name = name;
     this.message = message;
   };
 };
