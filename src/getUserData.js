@@ -10,15 +10,12 @@ const talk = {
   giveMeType: 'Choose type of answer(s) for your question',
 };
 
-
-
 const getUserData = async (arr) => {
   talk.greetings();
   let indexOfQuestion = 1;
   let flowMode = 'next';
 
   while (flowMode === 'next') {
-
     const userQuestion = await inquirer.prompt({
       type: 'input',
       name: 'question',
