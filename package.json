@@ -8,7 +8,9 @@
     "prepublishOnly": "npm run build",
     "test": "jest"
   },
-  "type": "module",
+  "bin": {
+    "fast-test": "dist/bin/index.js"
+  },
   "files": [
     "dist"
   ],

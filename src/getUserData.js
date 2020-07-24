@@ -4,8 +4,8 @@ import Question from './question.js';
 // All texts for conversation with user
 const talk = {
   greetings: () => {
-    console.log("\x1b[1m", 'Welcome to Fast-test!');
-    console.log("\x1b[1m", 'Let`s begin building your form!\n');
+    console.log('\x1b[1m', 'Welcome to Fast-test!');
+    console.log('\x1b[1m', 'Let`s begin building your form!\n');
   },
   giveMeQuestion: 'Tell me your question:',
   giveNextOption: 'Write option for your question here:',
