@@ -15,7 +15,11 @@ const buildForm = async () => {
     return acc;
   }, parsedForm);`))
     .then(() => fs.appendFile('form.js', '\ninquirer.prompt(parsedForm);'))
-    .then(() => console.log('\nForm was built!'));
+    .then(() => console.log('\nForm was built!'))
+    .catch((e) =>  {
+      console.log('Ooops, something went wrong!', e)
+      throw e;
+    });
 };
 
 export default buildForm;
