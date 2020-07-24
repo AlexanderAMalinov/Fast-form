@@ -1,7 +1,7 @@
 {
-  "name": "fast-test",
+  "name": "fast-form",
   "version": "1.0.0",
-  "description": "Command line application for generate tests in JS file",
+  "description": "Command line application for generate forms in JS file",
   "main": "dist/bin/index.js",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
@@ -14,14 +14,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexanderAMalinov/Fast-test.git"
+    "url": "git+https://github.com/AlexanderAMalinov/Fast-form.git"
   },
   "author": "Alexander Malinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlexanderAMalinov/Fast-test/issues"
+    "url": "https://github.com/AlexanderAMalinov/Fast-form/issues"
   },
-  "homepage": "https://github.com/AlexanderAMalinov/Fast-test#readme",
+  "homepage": "https://github.com/AlexanderAMalinov/Fast-form#readme",
   "dependencies": {
     "inquirer": "^7.3.2",
     "readline-sync": "^1.4.10"
