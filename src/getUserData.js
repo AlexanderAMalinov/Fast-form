@@ -3,8 +3,10 @@ import Question from './question.js';
 
 // All texts for conversation with user
 const talk = {
-  greetings: () => console.log('Welcome to Fast-test!\nLet`s begin building your form!\n'),
-  giveMeOptions: () => console.log('What`s options I set for your question?\n'),
+  greetings: () => {
+    console.log("\x1b[1m", 'Welcome to Fast-test!');
+    console.log("\x1b[1m", 'Let`s begin building your form!\n');
+  },
   giveMeQuestion: 'Tell me your question:',
   giveNextOption: 'Write option for your question here:',
   giveMeType: 'Choose type of answer(s) for your question',
@@ -31,7 +33,6 @@ const getUserData = async (arr) => {
 
     // Generate options for list-question
     if (typeOfUserQuestion.typeOfQuestion === 'list') {
-      talk.giveMeOptions();
       let listMode = 'continue';
       while (listMode === 'continue') {
         const option = await inquirer.prompt({
@@ -61,8 +62,8 @@ const getUserData = async (arr) => {
       name: 'question',
       message: 'Do you want set next question? (y|n)',
     });
-
     flowMode = userWill.question === 'y' ? 'next' : 'break';
+    console.clear();
   }
 };
 
