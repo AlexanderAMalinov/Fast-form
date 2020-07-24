@@ -16,8 +16,8 @@ const buildForm = async () => {
   }, parsedForm);`))
     .then(() => fs.appendFile('form.js', '\ninquirer.prompt(parsedForm);'))
     .then(() => console.log('\nForm was built!'))
-    .catch((e) =>  {
-      console.log('Ooops, something went wrong!', e)
+    .catch((e) => {
+      console.log('Ooops, something went wrong!', e);
       throw e;
     });
 };
