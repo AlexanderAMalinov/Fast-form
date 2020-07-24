@@ -24,4 +24,4 @@ npm install fast-forms
 ```
 
 ## Example
-[![asciicast](https://asciinema.org/a/sWOVPL1GcTNyuzAo3gQMU5gKo.svg)](https://asciinema.org/a/sWOVPL1GcTNyuzAo3gQMU5gKo)
+[![asciicast](https://asciinema.org/a/WFclCYloyhpjoEp5hjkMATWDC.svg)](https://asciinema.org/a/WFclCYloyhpjoEp5hjkMATWDC)
