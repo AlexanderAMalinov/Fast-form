@@ -1,5 +1,7 @@
+import inquirer from "inquirer";
+
 const content = {
-  importFrom: 'import inquirer from \'inquirer\';',
+  importFrom: 'const inquirer = require("inquirer");',
   parseAndLaunch: `
   const parsedForm = [];
   form.reduce((acc, item) => {
