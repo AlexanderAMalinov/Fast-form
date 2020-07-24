@@ -13,6 +13,7 @@ const talk = {
 };
 
 const getUserData = async (arr) => {
+  console.clear();
   talk.greetings();
   let indexOfQuestion = 1;
   let flowMode = 'next';
