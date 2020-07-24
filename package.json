@@ -16,14 +16,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlexanderAMalinov/Fast-form.git"
+    "url": "git+https://github.com/AlexanderAMalinov/Fast-forms.git"
   },
   "author": "Alexander Malinov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AlexanderAMalinov/Fast-form/issues"
+    "url": "https://github.com/AlexanderAMalinov/Fast-forms/issues"
   },
-  "homepage": "https://github.com/AlexanderAMalinov/Fast-form#readme",
+  "homepage": "https://github.com/AlexanderAMalinov/Fast-forms#readme",
   "dependencies": {
     "inquirer": "^7.3.3"
   },
