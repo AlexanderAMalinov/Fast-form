@@ -1,6 +1,6 @@
 {
   "name": "fast-forms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command line application for generate forms in JS file",
   "main": "",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "bin": {
-    "fast-test": "dist/bin/index.js"
+    "fast-forms": "dist/bin/index.js"
   },
   "files": [
     "dist"
