@@ -1,5 +1,3 @@
-import inquirer from "inquirer";
-
 const content = {
   importFrom: 'const inquirer = require("inquirer");',
   parseAndLaunch: `
