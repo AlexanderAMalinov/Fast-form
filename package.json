@@ -8,6 +8,7 @@
     "prepublishOnly": "npm run build",
     "test": "jest"
   },
+  "type": "module",
   "bin": {
     "fast-forms": "dist/bin/index.js"
   },
