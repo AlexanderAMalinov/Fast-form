@@ -3,17 +3,10 @@ import Question from './question.js';
 import generateOptions from './generateOptions.js';
 
 const talk = {
-<<<<<<< HEAD
-  greetings: () => {
-    console.log('\x1b[1m', 'Welcome to Fast-forms!');
-    console.log('\x1b[1m', 'Let`s begin building your form!\n');
-  },
-=======
   greetings: [
     'Welcome to Fast-forms!',
     'Let`s begin building your form!\n',
   ],
->>>>>>> refactorOfgetUserData
   giveMeQuestion: 'Tell me your question:',
   giveMeType: 'Choose type of answer(s) for your question',
 };
