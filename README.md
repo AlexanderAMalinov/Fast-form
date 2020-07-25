@@ -7,8 +7,9 @@ generate configuration file or other use.
 
 ## Сharacteristic
 
-Result of using Fast-forms - JS file, which can be executed by NodeJS.
+Result of using Fast-forms - JS file, which can be executed by NodeJS.  
 App building on "inquirer" npm package and it determine character of resulted JS file.
+
 !!! For correct execute resulted file need installed (locally) 'inquirer' package.
 
 
